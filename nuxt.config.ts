@@ -11,6 +11,7 @@ export default defineNuxtConfig({
   security: {
     headers: {
       crossOriginResourcePolicy: 'same-origin',
+      contentSecurityPolicy: img-src 'self' data:;,
     },
   },
 });
