@@ -5,20 +5,19 @@
       <button @click="fetchData" class="block px-3 py-1.5 rounded-r-xl text-white bg-sky-400 md:px-6" type="button">Search</button>
     </form>
     <div class="flex flex-col items-center">
-      <ul class="tes mt-10 gap-4">
+      <ul class="coloums mt-10 gap-4">
         <li v-for="data in datas" :key="data" class="tes-2 flex relative mb-4 rounded-md overflow-hidden cursor-pointer">
           <img :src="`${data?.src?.large2x}`" alt="result image search" />
         </li>
       </ul>
     </div>
-    <p>{{ datas }}</p>
     <div v-if="isLoading">Loading...</div>
     <div v-if="error">{{ error }}</div>
   </div>
 </template>
 
 <style scoped>
-  .tes {
+  .coloums {
     columns: 5 340px;
   }
 </style>
