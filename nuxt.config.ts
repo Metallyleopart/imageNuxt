@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   security: {
     headers: {
       crossOriginResourcePolicy: 'same-origin',
-      contentSecurityPolicy: img-src 'self',
+      contentSecurityPolicy: "img-src 'self' https://images.pexels.com https://www.google-analytics.com",
     },
   },
 });
