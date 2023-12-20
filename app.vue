@@ -11,6 +11,7 @@
         </li>
       </ul>
     </div>
+    <p>{{ datas }}</p>
     <div v-if="isLoading">Loading...</div>
     <div v-if="error">{{ error }}</div>
   </div>
