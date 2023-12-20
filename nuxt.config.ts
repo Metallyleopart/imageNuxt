@@ -2,10 +2,15 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', nuxt-security],
   runtimeConfig: {
     public: {
       apiKey: process.env.API_KEY,
+    },
+  },
+  security: {
+    headers: {
+      crossOriginResourcePolicy: <OPTIONS>,
     },
   },
 });
