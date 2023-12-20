@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   },
   security: {
     headers: {
-      crossOriginResourcePolicy: <OPTIONS>,
+      crossOriginResourcePolicy: same-origin,
     },
   },
 });
