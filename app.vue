@@ -59,6 +59,8 @@ import { mergeProps } from "vue";
   // tambahkan fungsi jika halaman masih 1
   function fetchData() {
     if (input.value) {
+      datas.value = null;
+      page.value = 1;
       data.value = null;
       error.value = null;
       pending.value = true;
@@ -75,7 +77,9 @@ import { mergeProps } from "vue";
     if (input.value) {
       // tambahkan halaman sebelum fetch data
       page.value++;
-      fetchData();
+      error.value = null;
+      pending.value = true;
+      execute();
     }
     // tambahkan isopen untuk merubah value
     isOpen.value = true;
