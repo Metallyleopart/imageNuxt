@@ -19,8 +19,8 @@
       <div v-if="isOpen" class="absolute translate-1/2 grid place-items-center w-8/12 flex-col p-6 w-10/12 z-10 rounded-md text-white bg-white">
         <div class="flex justify-end">
           <div class="backdrop-blur-sm bg-white pl-2 pb-2 rounded-md rounded-lb-md cursor-pointer absolute right-4 top-4">
-            <NuxtImg @click="isOpen = !isOpen" class="h-10 w-10 fill-white" src="./svg/cross.svg" alt="cross" />
-            <NuxtImg @click="downloadImage" class="h-10 w-10 fill-white" src="./svg/download.svg" alt="download" />
+            <NuxtImg @click="isOpen = !isOpen" class="h-10 w-10 fill-white" src="./svg/public/cross.svg" alt="cross" />
+            <NuxtImg @click="downloadImage" class="h-10 w-10 fill-white" src="./public/svg/download.svg" alt="download" />
           </div>
         </div>
         <NuxtImg class="inline" :src="selectedImage" alt="Selected image" />
