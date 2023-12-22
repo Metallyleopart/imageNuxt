@@ -16,14 +16,15 @@
           <NuxtImg @click="selectImage" :src="`${data?.src?.large2x}`" :alt="`${data?.alt}`" />
         </li>
       </ul>
-      <div v-if="isOpen" class="absolute translate-1/2 grid place-items-center w-8/12 flex-col p-6 w-10/12 z-10 rounded-md text-white bg-white">
+      <div v-if="isOpen" class="absolute translate-1/2 grid place-items-center w-full flex-col p-4 md:p-6 md:w-10/12 z-10 rounded-md text-white bg-white">
         <div class="flex justify-end">
           <div class="backdrop-blur-sm bg-white pl-2 pb-2 rounded-md rounded-lb-md cursor-pointer absolute right-4 top-4">
-            <img @click="isOpen = !isOpen" class="h-10 w-10 fill-white" src="./public/svg/cross.svg" alt="cross" />
-            <img @click="downloadImage" class="h-10 w-10 fill-white" src="./public/svg/download.svg" alt="download" />
+            <img @click="isOpen = !isOpen" class="h-8 w-8 md:h-10 md:w-10" src="./public/svg/cross.svg" alt="cross" />
+            <img @click="downloadImage" class="h-8 w-8 md:h-10 md:w-10" src="./public/svg/download.svg" alt="download" />
           </div>
         </div>
-        <NuxtImg class="inline" :src="selectedImage" alt="Selected image" />
+        <h2 class="my-2 text-center text-black tracking-wider font-semibold">{{ selectedImage.alt }}</h2>
+        <NuxtImg class="inline" :src="`${selectedImage.src}`" :alt="`${selectedImage.alt}`" />
       </div>
       <div v-if="pending">
         <loading />
@@ -53,10 +54,12 @@
   const { input, datas, pending, error, fetchData, loadMore } = useFetchData();
 
   const selectImage = (event) => {
-    const imageUrl = event.target.src;
+    const imageUrl = event.target;
     selectedImage.value = imageUrl;
     isOpen.value = true;
     console.log('one', event.target.src);
+    console.log('two', event.target);
+    console.log('3', event);
   };
 
   function downloadImage() {
