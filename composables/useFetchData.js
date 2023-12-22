@@ -2,7 +2,7 @@ export default function useFetchData() {
   const id = useRuntimeConfig().public.apiKey;
   let page = ref(1);
   const input = ref('');
-  const datas = ref([]);
+  const datas = ref();
 
   // buat inisialisasi asynchronous menggunakan asyncdata
   const { pending, data, error, execute } = useLazyAsyncData('fetchData', () =>
@@ -35,7 +35,7 @@ export default function useFetchData() {
       pending.value = true;
       execute();
     }
-    console.log(data);
+    console.log(data.alt);
     console.log(datas);
   }
 

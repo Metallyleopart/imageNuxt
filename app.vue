@@ -1,4 +1,9 @@
 <template>
+  <Head>
+    <Html lang="en" />
+    <Title>{{ title }}</Title>
+    <Meta name="description" :content="title" />
+  </Head>
   <div class="p-5">
     <h1 class="mt-3 mb-4 text-center text-sky-400 text-3xl font-semibold">Image search</h1>
     <form class="flex mx-auto max-w-md" @submit.prevent="fetchData(input)">
@@ -6,16 +11,16 @@
       <button class="block px-3 py-1.5 rounded-r-md text-white bg-sky-400 md:px-6" type="submit">Search</button>
     </form>
     <div class="flex flex-col items-center h-full w-full">
-      <ul class="columns-xs mt-10 gap-4">
+      <ul class="columns-2xs w-full mt-10 gap-4">
         <li v-for="data in datas" :key="data" class="tes-2 flex relative mb-4 rounded-md overflow-hidden cursor-pointer">
-          <img :src="`${data?.src?.large2x}`" alt="result image search" />
+          <NuxtImg :src="`${data?.src?.large2x}`" :alt="`${data?.alt}`" />
         </li>
       </ul>
       <div v-if="pending">loading...</div>
-      <div v-if="error & input.length > 0">error</div>
+      <div v-if="error & (input.length > 0)">error</div>
     </div>
     <!-- berukan pengecualian ketika ada data -->
-    <div v-if="isOpen != datas">
+    <div v-if="isOpen == !datas">
       <button @click="loadMore" class="block mx-auto px-4 py-2 rounded-md bg-sky-400 text-white max-w-md" type="button">Load more?</button>
     </div>
   </div>
@@ -23,15 +28,16 @@
 
 <style scoped>
   body {
-    background-color: #f0f0f0;
+    background: #f0f0f0;
   }
 </style>
 
 <script setup>
+  const title = 'Image search with Pexel API';
   const isOpen = ref(false);
   // import dengan menggunakan object dan nama file
   const { input, datas, pending, error, fetchData, loadMore } = useFetchData();
-  
+
   // const id = useRuntimeConfig().public.apiKey;
   // let page = ref(1);
   // const isOpen = ref(false);
