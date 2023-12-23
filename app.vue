@@ -24,8 +24,8 @@
         </span>
         <div class="flex justify-center">
           <div class="backdrop-blur-sm bg-white p-1 rounded-md rounded-lb-md cursor-pointer absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2">
-            <img @click="isOpen = !isOpen" class="h-7 w-7 md:h-10 md:w-10" src="./public/svg/cross.svg" alt="cross" />
-            <img @click="downloadImage" class="h-7 w-7 md:h-10 md:w-10" src="./public/svg/download.svg" alt="download" />
+            <img @click="isOpen = !isOpen" class="h-8 w-8 md:h-10 md:w-10" src="./public/svg/cross.svg" alt="cross" />
+            <img @click="downloadImage" class="h-8 w-8 md:h-10 md:w-10" src="./public/svg/download.svg" alt="download" />
           </div>
           <div class="w-5/6 md:w-9-12">
             <NuxtImg class="inline rounded-md" :src="`${selectedImage.src?.large2x}`" :alt="`${selectedImage.alt}`" />
