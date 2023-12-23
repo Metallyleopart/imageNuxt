@@ -13,25 +13,29 @@
     <div class="h-full w-full">
       <ul class="columns-xs w-full mt-10 gap-4">
         <li v-for="data in datas" :key="data" class="tes-2 flex relative mb-4 rounded-md overflow-hidden cursor-pointer">
-          <NuxtImg @click="selectImage" :src="`${data?.src?.large2x}`" :alt="`${data?.alt}`" />
+          <NuxtImg @click="selectImage(data)" :src="`${data?.src?.large2x}`" :alt="`${data?.alt}`" />
         </li>
       </ul>
       <div v-if="isOpen" class="fixed mx-auto w-fit px-2 inset-0 z-50 flex flex-col justify-center items-center bg-white bg-opacity-90">
-        <p class="mb-1.5 text-center text-black tracking-wider font-semibold">{{ selectedImage.alt }}</p>
+        <p class="text-center text-black tracking-wider font-semibold">{{ selectedImage.alt }}</p>
+        <span class="flex items-center justify-center">
+          <img class="mr-1 w-5 h-5" src="./public/svg/camera.svg" alt="" />
+          <p class="text-black tracking-wider">{{ selectedImage.photographer }}</p>
+        </span>
         <div class="flex justify-center">
           <div class="backdrop-blur-sm bg-white p-1 rounded-md rounded-lb-md cursor-pointer absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2">
-            <img @click="isOpen = !isOpen" class="h-6 w-6 md:h-10 md:w-10" src="./public/svg/cross.svg" alt="cross" />
-            <img @click="downloadImage" class="h-6 w-6 md:h-10 md:w-10" src="./public/svg/download.svg" alt="download" />
+            <img @click="isOpen = !isOpen" class="h-7 w-7 md:h-10 md:w-10" src="./public/svg/cross.svg" alt="cross" />
+            <img @click="downloadImage" class="h-7 w-7 md:h-10 md:w-10" src="./public/svg/download.svg" alt="download" />
           </div>
           <div class="w-5/6 md:w-9-12">
-            <NuxtImg class="inline rounded-md" :src="`${selectedImage.src}`" :alt="`${selectedImage.alt}`" />
+            <NuxtImg class="inline rounded-md" :src="`${selectedImage.src?.large2x}`" :alt="`${selectedImage.alt}`" />
           </div>
         </div>
       </div>
       <div v-if="pending">
         <loading />
       </div>
-      <div v-if="error & input.length > 0">Fails load image</div>
+      <div v-if="error & (input.length > 0)">Fails load image</div>
     </div>
     <!-- berukan pengecualian ketika ada data -->
     <div v-if="isMore == !datas">
@@ -55,24 +59,24 @@
   // import dengan menggunakan object dan nama file
   const { input, datas, pending, error, fetchData, loadMore } = useFetchData();
 
-  const selectImage = (event) => {
-    const imageUrl = event.target;
-    selectedImage.value = imageUrl;
+  function selectImage(data) {
+    // `data` adalah objek yang berisi semua data dari gambar yang diklik
+    selectedImage.value = data;
+
+    // Buka kotak `isOpen`
     isOpen.value = true;
-    console.log('one', event.target.src);
-    console.log('two', event.target);
-    console.log('3', event);
-  };
+    console.log(selectedImage);
+  }
 
   function downloadImage() {
     fetch(selectedImage.value)
       .then((res) => res.blob())
-        .then((blob) => {
-          const a = document.createElement('a');
-          a.href = URL.createObjectURL(blob);
-          a.download = new Date().getTime();
-          a.click();
-        })
+      .then((blob) => {
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = new Date().getTime();
+        a.click();
+      })
       .catch(() => alert('Failed download image'));
   }
 </script>
