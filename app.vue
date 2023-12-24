@@ -12,7 +12,7 @@
       <button class="px-4 py-1.5 rounded-r-md text-white bg-sky-400 md:px-6" type="submit">Search</button>
     </form> -->
     <form class="flex mx-auto max-w-md" @submit.prevent="fetchData(input)">
-      <input type="search" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-s-md outline-none border-0" placeholder="Search" required autocomplete="off" v-model="input"/>
+      <input type="search" class="block p-2.5 ps-4 w-full z-20 text-sm text-gray-900 bg-gray-200 rounded-s-md outline-none border-0" placeholder="Search" required autocomplete="off" v-model="input" />
       <button type="submit" class="flex items-center p-2.5 h-full text-sm font-medium text-white bg-sky-400 rounded-e-md hover:bg-sky-500 outline-none">
         <svg class="mr-2 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
@@ -38,7 +38,7 @@
         </span>
         <div class="flex justify-end fill-white text-white">
           <span class="flex p-2.5 rounded-md bg-sky-400 hover:bg-sky-500 w-fit">
-            <img @click="downloadImage" class="mr-2 h-5 w-5 md:h-8 md:w-8" src="./public/svg/download.svg" alt="download" />
+            <img @click="downloadImage" class="mr-2 h-5 w-5" src="./public/svg/download.svg" alt="download" />
             <p>Download</p>
           </span>
         </div>
