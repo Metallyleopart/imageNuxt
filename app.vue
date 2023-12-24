@@ -21,7 +21,7 @@
           <NuxtImg @click="selectImage(data)" :src="`${data?.src?.large2x}`" :alt="`${data?.alt}`" />
         </li>
       </ul>
-      <div v-if="isOpen" class="fixed py-3 px-5 overflow-y-scroll mx-auto w-full inset-0 z-50 items-center">
+      <div v-if="isOpen" class="fixed bg-white py-3 px-5 overflow-y-scroll mx-auto w-full inset-0 z-50 items-center">
         <!-- close btn -->
         <div class="flex justify-end">
           <img @click="isOpen = !isOpen" class="h-10 w-10" src="./public/svg/cross.svg" alt="cross" />
