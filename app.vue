@@ -4,11 +4,11 @@
     <Title>{{ title }}</Title>
     <Meta name="description" :content="title" />
   </Head>
-  <div class="p-5 font-poppins">
-    <h1 class="my-4 text-center text-sky-400 text-2xl md:text-3xl font-bold">Image Search Engine</h1>
+  <div class="p-5 font-poppins text-blue-dark">
+    <h1 class="my-4 text-center text-2xl md:text-3xl font-bold">Image Search Engine</h1>
     <form class="flex mx-auto max-w-md" @submit.prevent="fetchData(input)">
-      <input type="search" class="block p-2.5 ps-4 w-full z-20 text-sm text-gray-900 bg-gray-200 rounded-s-md outline-none border-0" placeholder="Search" required autocomplete="off" v-model="input" />
-      <button type="submit" class="flex items-center p-2.5 h-full text-sm font-medium text-white bg-sky-400 rounded-e-md hover:bg-sky-500 outline-none">
+      <input type="search" class="block p-2.5 ps-4 w-full z-20 text-sm text-gray-800 bg-gray-200 rounded-s-md outline-none border-0" placeholder="Search" required autocomplete="off" v-model="input" />
+      <button type="submit" class="flex items-center p-2.5 h-full text-sm font-medium text-white bg-blue-dark rounded-e-md outline-none">
         <svg class="mr-2 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
         </svg>
@@ -21,7 +21,7 @@
           <NuxtImg @click="selectImage(data)" :src="`${data?.src?.large2x}`" :alt="`${data?.alt}`" />
         </li>
       </ul>
-      <div v-if="isOpen" class="fixed py-3 px-5 overflow-y-scroll mx-auto w-full inset-0 z-50 items-center bg-[#f0f0f0]">
+      <div v-if="isOpen" class="fixed py-3 px-5 overflow-y-scroll mx-auto w-full inset-0 z-50 items-center">
         <!-- close btn -->
         <div class="flex justify-end">
           <img @click="isOpen = !isOpen" class="h-10 w-10" src="./public/svg/cross.svg" alt="cross" />
@@ -32,7 +32,7 @@
           <p class="text-black tracking-wider">{{ selectedImage.photographer }}</p>
         </span>
         <div class="flex justify-end fill-white text-white">
-          <span class="flex p-2.5 rounded-md bg-sky-400 hover:bg-sky-500 w-fit">
+          <span class="flex p-2.5 rounded-md bg-blue-dark w-fit">
             <img @click="downloadImage" class="mr-2 h-5 w-5" src="./public/svg/download.svg" alt="download" />
             <p>Download</p>
           </span>
@@ -48,16 +48,10 @@
     <div v-if="error & (input.length > 0)">Fails load image</div>
     <!-- berukan pengecualian ketika ada data -->
     <div v-if="isMore == !datas">
-      <button @click="loadMore" class="block mt-2 mx-auto px-4 py-2 rounded-md bg-sky-400 text-white max-w-md" type="button">Load more?</button>
+      <button @click="loadMore" class="block mt-2 mx-auto px-4 py-2 rounded-md bg-blue-dark text-white max-w-md" type="button">Load more?</button>
     </div>
   </div>
 </template>
-
-<style scoped>
-  body {
-    background: #eeeeee;
-  }
-</style>
 
 <script setup>
   const title = 'Image search with Pexel API';
