@@ -3,7 +3,6 @@
     <Html lang="en" />
     <Title>{{ title }}</Title>
     <Meta name="description" :content="title" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
   </Head>
   <div class="p-5 font-poppins">
     <h1 class="my-4 text-center text-sky-400 text-2xl md:text-3xl font-bold">Image Search Engine</h1>

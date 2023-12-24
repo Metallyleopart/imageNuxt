@@ -2,11 +2,16 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/image', 'nuxt-security'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/image', 'nuxt-security', '@nuxtjs/google-fonts'],
   runtimeConfig: {
     public: {
       apiKey: process.env.API_KEY,
     },
+  },
+  googleFonts: {
+    families: {
+      Poppins: [100, 200, 300, 400, 500, 600, 700, 800, 900]
+    }
   },
   security: {
     headers: {
