@@ -17,27 +17,31 @@
           <NuxtImg @click="selectImage(data)" :src="`${data?.src?.large2x}`" :alt="`${data?.alt}`" />
         </li>
       </ul>
-      <div v-if="isOpen" class="fixed mx-auto w-fit px-2 inset-0 z-50 flex flex-col justify-center items-center bg-white/90">
-        <h3 class="text-center text-black tracking-wider font-semibold">{{ selectedImage.alt }}</h3>
-        <span class="flex items-center justify-center">
-          <img class="mr-1 w-5 h-5" src="./public/svg/camera.svg" alt="" />
+      <div v-if="isOpen" class="fixed py-3 px-5 overflow-y-scroll mx-auto w-full inset-0 z-50 items-center bg-[#f0f0f0]">
+        <!-- close btn -->
+        <div class="flex justify-end">
+          <img @click="isOpen = !isOpen" class="h-10 w-10" src="./public/svg/cross.svg" alt="cross" />
+        </div>
+        <h3 class="text-black tracking-wider font-semibold">{{ selectedImage.alt }}</h3>
+        <span class="my-2 flex items-center justify-start">
+          <img class="mr-1 w-5 h-5" src="./public/svg/camera.svg" alt="photograper name" />
           <p class="text-black tracking-wider">{{ selectedImage.photographer }}</p>
         </span>
-        <div class="flex justify-center">
-          <div class="backdrop-blur-sm bg-white p-1 rounded-md rounded-lb-md cursor-pointer absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2">
-            <img @click="isOpen = !isOpen" class="h-8 w-8 md:h-10 md:w-10" src="./public/svg/cross.svg" alt="cross" />
-            <img @click="downloadImage" class="h-8 w-8 md:h-10 md:w-10" src="./public/svg/download.svg" alt="download" />
-          </div>
-          <div class="w-5/6 md:w-9-12">
-            <NuxtImg class="inline rounded-md" :src="`${selectedImage.src?.large2x}`" :alt="`${selectedImage.alt}`" />
-          </div>
+        <div class="flex justify-end fill-white text-white">
+          <span class="flex px-4 py-2 rounded-md bg-sky-400 hover:bg-sky-500 w-fit">
+            <img @click="downloadImage" class="mr-2 h-5 w-5 md:h-8 md:w-8" src="./public/svg/download.svg" alt="download" />
+            <p>Download</p>
+          </span>
+        </div>
+        <div class="mx-auto w-fit flex justify-center">
+          <NuxtImg class="inline mt-4 h-full w-full rounded-md" :src="`${selectedImage.src?.large2x}`" :alt="`${selectedImage.alt}`" />
         </div>
       </div>
     </div>
     <div v-if="pending">
       <loading />
     </div>
-    <div v-if="error & input.length > 0">Fails load image</div>
+    <div v-if="error & (input.length > 0)">Fails load image</div>
     <!-- berukan pengecualian ketika ada data -->
     <div v-if="isMore == !datas">
       <button @click="loadMore" class="block mt-2 mx-auto px-4 py-2 rounded-md bg-sky-400 text-white max-w-md" type="button">Load more?</button>
