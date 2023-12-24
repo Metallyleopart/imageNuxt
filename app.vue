@@ -7,9 +7,18 @@
   </Head>
   <div class="p-5 font-poppins">
     <h1 class="mt-3 mb-4 text-center text-sky-400 text-2xl md:text-3xl font-semibold">Image Search Engine</h1>
-    <form class="flex mx-auto justify-center max-w-sm" @submit.prevent="fetchData(input)">
+    <!-- <form class="flex mx-auto justify-center max-w-sm" @submit.prevent="fetchData(input)">
       <input class="bg-gray-400 placeholder:text-slate-100 text-white rounded-l-md border-0 outline-0 pl-4 pr-1 py-2.5 md:px-6" v-model="input" placeholder="Search here" type="text" />
       <button class="px-4 py-1.5 rounded-r-md text-white bg-sky-400 md:px-6" type="submit">Search</button>
+    </form> -->
+    <form class="flex mx-auto max-w-md" @submit.prevent="fetchData(input)">
+      <input type="search" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-s-md outline-none border-0" placeholder="Search" required autocomplete="off" v-model="input"/>
+      <button type="submit" class="flex items-center p-2.5 h-full text-sm font-medium text-white bg-sky-400 rounded-e-md hover:bg-sky-500 outline-none">
+        <svg class="mr-2 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+        </svg>
+        search
+      </button>
     </form>
     <div v-if="datas" class="h-full w-full">
       <ul class="columns-xs w-full mt-10 gap-4">
@@ -28,7 +37,7 @@
           <p class="text-black tracking-wider">{{ selectedImage.photographer }}</p>
         </span>
         <div class="flex justify-end fill-white text-white">
-          <span class="flex px-4 py-2 rounded-md bg-sky-400 hover:bg-sky-500 w-fit">
+          <span class="flex p-2.5 rounded-md bg-sky-400 hover:bg-sky-500 w-fit">
             <img @click="downloadImage" class="mr-2 h-5 w-5 md:h-8 md:w-8" src="./public/svg/download.svg" alt="download" />
             <p>Download</p>
           </span>
