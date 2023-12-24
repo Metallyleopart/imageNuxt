@@ -6,11 +6,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
   </Head>
   <div class="p-5 font-poppins">
-    <h1 class="mt-3 mb-4 text-center text-sky-400 text-2xl md:text-3xl font-semibold">Image Search Engine</h1>
-    <!-- <form class="flex mx-auto justify-center max-w-sm" @submit.prevent="fetchData(input)">
-      <input class="bg-gray-400 placeholder:text-slate-100 text-white rounded-l-md border-0 outline-0 pl-4 pr-1 py-2.5 md:px-6" v-model="input" placeholder="Search here" type="text" />
-      <button class="px-4 py-1.5 rounded-r-md text-white bg-sky-400 md:px-6" type="submit">Search</button>
-    </form> -->
+    <h1 class="my-4 text-center text-sky-400 text-2xl md:text-3xl font-bold">Image Search Engine</h1>
     <form class="flex mx-auto max-w-md" @submit.prevent="fetchData(input)">
       <input type="search" class="block p-2.5 ps-4 w-full z-20 text-sm text-gray-900 bg-gray-200 rounded-s-md outline-none border-0" placeholder="Search" required autocomplete="off" v-model="input" />
       <button type="submit" class="flex items-center p-2.5 h-full text-sm font-medium text-white bg-sky-400 rounded-e-md hover:bg-sky-500 outline-none">
@@ -60,7 +56,7 @@
 
 <style scoped>
   body {
-    background: #f0f0f0;
+    background: #eeeeee;
   }
 </style>
 
