@@ -9,9 +9,7 @@
     <form class="flex mx-auto max-w-md" @submit.prevent="fetchData(input)">
       <input type="search" class="block p-2.5 ps-4 w-full z-20 text-sm text-gray-800 bg-gray-200 rounded-s-md outline-none border-0" placeholder="Search here" required autocomplete="off" v-model="input" />
       <button type="submit" class="flex items-center p-2.5 h-full text-sm font-medium text-white bg-blue-dark rounded-e-md outline-none">
-        <svg class="mr-2 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-        </svg>
+        <Icon class="mr-2" name="ic:round-search" size="1.25rem"/>
         search
       </button>
     </form>
@@ -24,17 +22,17 @@
       <div v-if="isOpen" class="fixed bg-white py-3 px-5 overflow-y-scroll mx-auto w-full inset-0 z-50 items-center">
         <!-- close btn -->
         <div class="flex justify-end">
-          <img @click="isOpen = !isOpen" class="h-10 w-10" src="./public/svg/cross.svg" alt="cross" />
+          <Icon @click="isOpen = !isOpen" class="mb-2 cursor-pointer w-10 h-10" name="maki:cross" color="black" />
         </div>
         <h3 class="text-black tracking-wider font-semibold">{{ selectedImage.alt }}</h3>
         <span class="my-2 flex items-center justify-start">
-          <img class="mr-1 w-5 h-5" src="./public/svg/camera.svg" alt="photograper name" />
+          <Icon class="mr-1" name="uil:camera" size="1.35rem" color="black" />
           <p class="text-black tracking-wider">{{ selectedImage.photographer }}</p>
         </span>
-        <div class="flex justify-end fill-white text-white">
-          <span class="flex p-2.5 rounded-md bg-blue-dark w-fit">
-            <img @click="downloadImage" class="mr-2 h-5 w-5" src="./public/svg/download.svg" alt="download" />
-            <p>Download</p>
+        <div class="flex justify-end">
+          <span class="flex cursor-pointer p-2.5 rounded-md bg-blue-dark w-fit">
+            <Icon @click="downloadImage" class="mr-2 text-white fill-white" name="iconoir:download" size="1.5rem" color="white" />
+            <p class="text-white">Download</p>
           </span>
         </div>
         <div class="mx-auto w-fit flex justify-center">
