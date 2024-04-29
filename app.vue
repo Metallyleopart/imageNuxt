@@ -15,7 +15,7 @@
     <div v-if="datas" class="h-full w-full">
       <ul class="columns-xs w-full mt-10 gap-4">
         <li v-for="data in datas" :key="data" class="tes-2 flex relative mb-4 rounded-md overflow-hidden cursor-pointer">
-          <NuxtImg @click="selectImage(data)" :src="`${data?.src?.large2x}`" :alt="`${data?.alt}`" />
+          <nuxt-img @click="selectImage(data)" :src="`${data?.src?.large2x}`" :alt="`${data?.alt}`" placeholder placeholder-class="blur" />
         </li>
       </ul>
       <div v-if="isOpen" class="fixed z-10 inset-0 overflow-y-auto bg-gray-500 bg-opacity-75 transition-opacity">
@@ -29,7 +29,7 @@
               </h4>
               <div class="mt-1">
                 <p class="text-sm text-gray-500">Click the button below to download the image.</p>
-                <img :src="selectedImage.src.large2x" :alt="selectedImage.alt" class="mt-4" />
+                <NuxtImg :src="selectedImage.src.large2x" :alt="selectedImage.alt" class="mt-4" />
               </div>
             </div>
             <div class="bg-gray-50 py-3 px-6 flex flex-col gap-y-2 md:px-4 md:flex-row-reverse md:gap-x-2">
@@ -51,6 +51,17 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+  .blur {
+    filter: blur(10px);
+  }
+
+  img:not(.blur) {
+    filter: none;
+    transition: filter 300ms ease-in-out;
+  }
+</style>
 
 <script setup>
   const isOpen = ref(false);
