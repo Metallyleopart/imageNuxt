@@ -15,7 +15,7 @@
     <div v-if="datas" class="h-full w-full">
       <ul class="columns-xs w-full mt-10 gap-4">
         <li v-for="data in datas" :key="data" class="tes-2 flex relative mb-4 rounded-md overflow-hidden cursor-pointer">
-          <nuxt-img @click="selectImage(data)" :src="`${data?.src?.large2x}`" :alt="`${data?.alt}`" placeholder placeholder-class="blur" />
+          <nuxt-img @click="selectImage(data)" :src="`${data?.src?.large2x}`" :alt="`${data?.alt}`" placeholder placeholder-class="blur" loading="lazy"/>
         </li>
       </ul>
       <div v-if="isOpen" class="fixed z-10 inset-0 overflow-y-auto bg-gray-500 bg-opacity-75 transition-opacity">
