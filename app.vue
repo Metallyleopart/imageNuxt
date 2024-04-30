@@ -15,6 +15,9 @@
     <div v-if="datas" class="h-full w-full">
       <ul class="columns-xs w-full mt-10 gap-4">
         <li v-for="data in datas" :key="data" class="tes-2 flex relative mb-4 rounded-md overflow-hidden cursor-pointer">
+          <!-- placeholder berfungsi sebelum gambar di render
+            maka kita dapat menambahkan css atau gambar default
+          -->
           <nuxt-img @click="selectImage(data)" :src="`${data?.src?.large2x}`" :alt="`${data?.alt}`" placeholder placeholder-class="blur" loading="lazy" />
         </li>
       </ul>
@@ -33,10 +36,10 @@
               </div>
             </div>
             <div class="bg-gray-50 py-3 px-6 flex flex-col gap-y-2 md:px-4 md:flex-row-reverse md:gap-x-2">
-              <div v-if="isLoading == true">
+              <div class="block px-4 py-2 text-white text-center text-base bg-blue-dark w-full outline-none rounded-md md:inline-flex md:justify-center md:font-medium" v-if="isLoading == true">
                 <loading />
               </div>
-              <div class="block px-4 py-2 text-white text-base bg-blue-dark w-full outline-none rounded-md md:inline-flex md:justify-center md:font-medium" v-else>
+              <div class="block px-4 py-2 text-white text-center text-base bg-blue-dark w-full outline-none rounded-md md:inline-flex md:justify-center md:font-medium" v-else>
                 <button type="button" @click="downloadImage() & (isLoading == true)">Download</button>
               </div>
               <button type="button" class="block px-4 py-2 text-base bg-white w-full border-2 rounded-md md:inline-flex md:justify-center md:font-medium" @click="isOpen = false">Cancel</button>
@@ -45,7 +48,7 @@
         </div>
       </div>
     </div>
-    <!-- berukan pengecualian ketika ada data -->
+    <!-- pengecualian ketika ada data -->
     <div v-if="isMore == !datas">
       <div v-if="pending">
         <loading />
@@ -92,7 +95,7 @@
       a.href = URL.createObjectURL(blob);
       a.download = selectedImage.value.alt + ' ' + selectedImage.value.photographer + ' ' + 'Unsplash';
       a.click();
-    } catch (error) {
+    } catch (err) {
       alert('Failed download image');
     } finally {
       isLoading.value = false;
