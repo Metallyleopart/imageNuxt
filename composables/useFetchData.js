@@ -22,7 +22,7 @@ export default function useFetchData() {
       // jika halaman lebih dari 1
       // tambahkan array sebelumnya dengan array baru menggunakan mergemodels dari Nuxt
       datas.value = mergeModels(datas.value, newValue?.photos);
-    }
+    } 
   });
 
   // tambahkan fungsi jika halaman masih 1
