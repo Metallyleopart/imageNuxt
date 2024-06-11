@@ -10,7 +10,7 @@ export default function useFetchData() {
       headers: {
         Authorization: id,
       },
-    })
+    }),
   );
 
   // tambahkan watch untuk melihat perubahan
@@ -18,7 +18,6 @@ export default function useFetchData() {
     if (page.value == 1) {
       // jika halaman masih 1
       datas.value = newValue?.photos;
-      console.log(data);
     } else {
       // jika halaman lebih dari 1
       // tambahkan array sebelumnya dengan array baru menggunakan mergemodels dari Nuxt
@@ -50,5 +49,5 @@ export default function useFetchData() {
   }
 
   // kembalikan apa yang akan di fetch
-  return { input, datas, pending, error, fetchData, loadMore };
+  return { input, datas, pending, error, fetchData, loadMore }
 }
