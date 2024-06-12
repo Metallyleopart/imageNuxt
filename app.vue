@@ -18,6 +18,7 @@
           <!-- placeholder berfungsi sebelum gambar di render
             maka kita dapat menambahkan css atau gambar default
           -->
+            {{data?.src?.original}}
           <NuxtImg @click="selectImage(data)" :src="`${data?.src?.original}`" :alt="`${data?.alt}`" placeholder placeholder-class="blur" loading="lazy" />
         </li>
       </ul>
