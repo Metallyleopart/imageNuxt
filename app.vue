@@ -1,4 +1,5 @@
 <template>
+  <notfound />
   <div class="p-5 font-poppins text-blue-dark">
     <h1 class="my-4 text-2xl font-bold text-center md:text-3xl">Image Search Engin</h1>
     <form class="flex max-w-md mx-auto" @submit.prevent="fetchData(input)">
