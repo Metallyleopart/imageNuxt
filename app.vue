@@ -1,6 +1,6 @@
 <template>
   <div class="p-5 font-poppins text-blue-dark">
-    <h1 class="my-4 text-2xl font-bold text-center md:text-3xl">Image Search Engine</h1>
+    <h1 class="my-4 text-2xl font-bold text-center md:text-3xl">Image Search Engin</h1>
     <form class="flex max-w-md mx-auto" @submit.prevent="fetchData(input)">
       <input type="search" class="block p-2.5 ps-4 w-full text-sm text-gray-800 bg-gray-200 rounded-s-md outline-none border-0" placeholder="Search here" required autocomplete="off" v-model="input" />
       <button type="submit" class="flex items-center p-2.5 h-full text-sm font-medium text-white bg-blue-dark rounded-e-md outline-none">
