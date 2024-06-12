@@ -27,8 +27,8 @@ export default defineNuxtConfig({
   },
 
   image: {
-    provider: 'netlify',
-    domains: ['https://imagenuxt.netlify.app'],
+    // provider: 'netlify',
+    domains: ['https://images.pexels.com/photos/', 'https://imagenuxt.netlify.app', 'http://localhost:3000/'],
   },
 
   security: {
