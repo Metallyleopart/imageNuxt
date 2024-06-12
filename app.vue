@@ -1,5 +1,5 @@
 <template>
-  <notfound />
+  <!-- <notfound /> -->
   <div class="p-5 font-poppins text-blue-dark">
     <h1 class="my-4 text-2xl font-bold text-center md:text-3xl">Image Search Engin</h1>
     <form class="flex max-w-md mx-auto" @submit.prevent="fetchData(input)">
@@ -19,7 +19,7 @@
           <!-- placeholder berfungsi sebelum gambar di render
             maka kita dapat menambahkan css atau gambar default
           -->
-          <NuxtImg @click="selectImage(data)" :src="`${data?.src?.original}`" :alt="`${data?.alt}`" loading="lazy" provider="netlify" fit="cover" format="webp" quality="100" :modifiers="{ position: 'left' }" />
+          <NuxtImg @click="selectImage(data)" src="https://images.pexels.com/photos/1337382/pexels-photo-1337382.jpeg" :alt="`${data?.alt}`" loading="lazy" provider="netlify" fit="cover" format="webp" quality="100" :modifiers="{ position: 'left' }" />
         </li>
       </ul>
       <div v-if="isOpen" class="fixed inset-0 z-10 overflow-y-auto transition-opacity bg-gray-500 bg-opacity-75">
