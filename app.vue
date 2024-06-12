@@ -18,7 +18,7 @@
           <!-- placeholder berfungsi sebelum gambar di render
             maka kita dapat menambahkan css atau gambar default
           -->
-          <NuxtImg @click="selectImage(data)" :src="`${data?.src?.original}`" :alt="`${data?.alt}`" loading="lazy" />
+          <NuxtImg @click="selectImage(data)" :src="`${data?.src?.original}`" :alt="`${data?.alt}`" loading="lazy" provider="netlify" fit="cover" format="webp" quality="100" :modifiers="{ position: 'left' }" />
         </li>
       </ul>
       <div v-if="isOpen" class="fixed inset-0 z-10 overflow-y-auto transition-opacity bg-gray-500 bg-opacity-75">
