@@ -27,8 +27,8 @@ export default defineNuxtConfig({
   },
 
   image: {
-    // provider: 'netlify',
-    domains: ['https://images.pexels.com/photos/', 'https://imagenuxt.netlify.app', 'http://localhost:3000/'],
+    // jika menggunakan nuxtImg maka harus menyertakan domains yang akan dikecualikan pada URL
+    domains: ['https://images.pexels.com/photos/', 'https://imagenuxt.netlify.app/', 'http://localhost:3000/'],
   },
 
   security: {

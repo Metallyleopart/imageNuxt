@@ -4741,7 +4741,7 @@ nuxt-security@^1.0.0:
     unplugin-remove "^1.0.2"
     xss "^1.0.14"
 
-nuxt@^3.12.1:
+nuxt@^3.8.2:
   version "3.12.1"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-3.12.1.tgz#88d0706f2374c11fb5cf156d941b738bbca0b8dd"
   integrity sha512-J9TO/b0KSTpKn4yzknIPYRhcJ+UwR/uFM2j0G2FPHAWKxo513ty7Y2unHejWfkuQBL6Ergw6o0E7XsIT059VQw==

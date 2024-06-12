@@ -18,6 +18,7 @@ export default function useFetchData() {
     if (page.value == 1) {
       // jika halaman masih 1
       datas.value = newValue?.photos;
+      console.log(datas);
     } else {
       // jika halaman lebih dari 1
       // tambahkan array sebelumnya dengan array baru menggunakan mergemodels dari Nuxt
