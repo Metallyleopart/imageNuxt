@@ -34,7 +34,8 @@ export default defineNuxtConfig({
   security: {
     headers: {
       crossOriginResourcePolicy: 'self',
-      contentSecurityPolicy: "img-src 'self' https://images.pexels.com",
+      // contentSecurityPolicy: "default-src 'self'; script-src 'self'; script-src: 'self' 'unsafe-inline'; img-src 'self';",
+      contentSecurityPolicy: "default-src 'none'; connect-src 'self' https:; font-src 'self' img-src 'self';",
     },
   },
 });
