@@ -1,6 +1,5 @@
 <template>
   <div class="p-5 font-poppins text-blue-dark">
-    <maintenance />
     <h1 class="my-4 text-2xl font-bold text-center md:text-3xl">Image Search Engine</h1>
     <form class="flex max-w-md mx-auto" @submit.prevent="fetchData(input)">
       <input type="search" class="block p-2.5 ps-4 w-full text-sm text-gray-800 bg-gray-200 rounded-s-md outline-none border-0" placeholder="Search here" required autocomplete="off" v-model="input" />
@@ -20,9 +19,9 @@
             maka kita dapat menambahkan css atau gambar default
           -->
           <!-- mobile -->
-          <NuxtImg class="block w-full md:hidden" @click="selectImage(data)" :src="`${data?.src?.original}`" :alt="`${data?.alt}`" placeholder placeholder-class="blur" loading="lazy" />
+          <!-- <NuxtImg :src="`${data?.src?.original}`" :alt="`${data?.alt}`" class="block w-full md:hidden" @click="selectImage(data)" placeholder placeholder-class="blur" loading="lazy" /> -->
           <!-- desktop -->
-          <NuxtImg class="hidden md:block" @click="selectImage(data)" :src="`${data?.src?.medium}`" :alt="`${data?.alt}`" placeholder placeholder-class="blur" loading="lazy" />
+          <NuxtImg :src="`${data?.src?.medium}`" :alt="`${data?.alt}`" class="w-full" @click="selectImage(data)" placeholder placeholder-class="blur" :nonce="nonce" />
         </li>
       </ul>
       <div v-if="isOpen" class="fixed inset-0 z-10 overflow-y-auto transition-opacity bg-gray-500 bg-opacity-75">
@@ -76,6 +75,7 @@
 </style>
 
 <script setup>
+  const nonce = useNonce();
   const isOpen = ref(false);
   const isMore = ref(false);
   const selectedImage = ref(null);

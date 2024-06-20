@@ -31,11 +31,11 @@ export default defineNuxtConfig({
     domains: ['https://images.pexels.com/photos/', 'https://imagenuxt.netlify.app/', 'http://localhost:3000/'],
   },
 
-  security: {
-    headers: {
-      crossOriginResourcePolicy: 'self',
-      // contentSecurityPolicy: "default-src 'self'; script-src 'self'; script-src: 'self' 'unsafe-inline'; img-src 'self';",
-      contentSecurityPolicy: "default-src 'none'; connect-src 'self' https:; font-src 'self' img-src 'self';",
-    },
-  },
+  // security: {
+  //   headers: {
+  //     crossOriginResourcePolicy: 'self',
+  //     // contentSecurityPolicy: "default-src 'self'; script-src 'self'; script-src: 'self' 'unsafe-inline'; img-src 'self';",
+  //     contentSecurityPolicy: "default-src 'none'; connect-src 'self' https:; font-src 'self' img-src 'self';",
+  //   },
+  // },
 });
