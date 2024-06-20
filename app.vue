@@ -35,14 +35,14 @@
               </h4>
               <div class="mt-1">
                 <p class="text-sm text-gray-500">Click the button below to download the image.</p>
-                <NuxtImg class="mx-auto mt-4" :src="selectedImage.src.original" :alt="selectedImage.alt" placeholder placeholder-class="blur" loading="lazy" />
+                <NuxtImg class="mx-auto mt-4" :src="selectedImage.src.original" :alt="selectedImage.alt" placeholder placeholder-class="skeleton" loading="lazy" />
               </div>
             </div>
             <div class="flex flex-col px-6 py-3 bg-gray-50 gap-y-2 md:px-4 md:flex-row-reverse md:gap-x-2">
               <div class="block w-full px-4 py-2 text-base text-center text-white rounded-md outline-none bg-blue-dark md:inline-flex md:justify-center md:font-medium" v-if="isLoading == true">
                 <loading />
               </div>
-              <div class="block w-full px-4 py-2 text-base text-center text-white rounded-md outline-none bg-blue-dark md:inline-flex md:justify-center md:font-medium" v-else>
+              <div v-else class="block w-full px-4 py-2 text-base text-center text-white rounded-md outline-none bg-blue-dark md:inline-flex md:justify-center md:font-medium">
                 <button type="button" @click="downloadImage() & (isLoading == true)">Download</button>
               </div>
               <button type="button" class="block w-full px-4 py-2 text-base bg-white border-2 rounded-md md:inline-flex md:justify-center md:font-medium" @click="isOpen = false">Cancel</button>
@@ -71,6 +71,24 @@
   img:not(.blur) {
     filter: none;
     transition: filter 300ms ease-in-out;
+  }
+
+  .skeleton {
+    min-width: 100%;
+    min-height: 35vh;
+    animation: skeleton-loading 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes skeleton-loading {
+    0%,
+    100% {
+      background-color: rgb(75 85 99);
+      opacity: 1;
+    }
+    50% {
+      background-color: rgb(229 231 235);
+      opacity: 0.5;
+    }
   }
 </style>
 
